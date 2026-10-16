@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Architecture" id="kiro-dash-arch">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0" adaptiveColors="auto">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="title" value="Efficiency Analytics Assistant for Kiro — Solution Architecture" style="text;html=1;fontSize=18;fontStyle=1;align=left;verticalAlign=middle;fontColor=#0f1b2d;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="900" height="30" as="geometry"/>
+        </mxCell>
+        <mxCell id="admin" value="Dashboard user&#10;(browser)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#232F3E;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=11;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.user;" vertex="1" parent="1">
+          <mxGeometry x="60" y="480" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="cognito" value="Amazon Cognito&#10;User Pool + Hosted UI&#10;(self-signup disabled, deployer-created users)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cognito;" vertex="1" parent="1">
+          <mxGeometry x="240" y="60" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="cf" value="Amazon CloudFront&#10;+ OAC (SPA)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudfront;" vertex="1" parent="1">
+          <mxGeometry x="270" y="300" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="s3web" value="S3 (private)&#10;React SPA build output&#10;KiroDash-Web" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="1">
+          <mxGeometry x="270" y="470" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="appgrp" value="Application layer (KiroDash-Api / AgentStack)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F2F7FC;strokeColor=#4A90D9;dashed=1;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#1b4f8a;" vertex="1" parent="1">
+          <mxGeometry x="480" y="240" width="520" height="360" as="geometry"/>
+        </mxCell>
+        <mxCell id="apigw" value="API Gateway (HTTP API)&#10;Cognito JWT Authorizer&#10;/api/*" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.api_gateway;" vertex="1" parent="appgrp">
+          <mxGeometry x="40" y="50" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="apilambda" value="Lambda (FastAPI+Mangum)&#10;dashboard REST API + /api/chat" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" vertex="1" parent="appgrp">
+          <mxGeometry x="230" y="50" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="agentcore" value="AgentCore Runtime&#10;Strands Agent (container/arm64)&#10;inbound Cognito JWT (same pool/client)&#10;kiro_usage_agent" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#01A88D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" vertex="1" parent="appgrp">
+          <mxGeometry x="230" y="210" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="bedrockmodel" value="Amazon Bedrock&#10;Claude Sonnet 4.5&#10;(inference profile)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#01A88D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.bedrock;" vertex="1" parent="appgrp">
+          <mxGeometry x="410" y="210" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="sharedq" value="Shared query layer (Queries + QueryLayer)&#10;parameterized SQL / injection guard / derived-field metrics / TTL cache" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4E6;strokeColor=#ED7100;fontSize=10;fontColor=#7a3d00;" vertex="1" parent="appgrp">
+          <mxGeometry x="40" y="290" width="430" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="datagrp" value="Data layer (KiroDash-Data)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1FAF0;strokeColor=#3F8E2E;dashed=1;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#2c6b1f;" vertex="1" parent="1">
+          <mxGeometry x="480" y="640" width="700" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="athena" value="Amazon Athena&#10;workgroup: KiroDash-Data-wg" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.athena;" vertex="1" parent="datagrp">
+          <mxGeometry x="40" y="50" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="glue" value="AWS Glue Data Catalog&#10;kiro_usage&#10;fact_user_daily / _model_daily" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.glue;" vertex="1" parent="datagrp">
+          <mxGeometry x="40" y="185" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="curated" value="S3 Curated&#10;Parquet long tables&#10;(non-partitioned external tables)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="datagrp">
+          <mxGeometry x="250" y="115" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="etl" value="ETL Lambda&#10;CSV->Parquet (pandas layer)&#10;cross-client aggregation + derived + department join" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" vertex="1" parent="datagrp">
+          <mxGeometry x="450" y="50" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="idsync" value="identity-sync Lambda&#10;Identity Store API→DynamoDB" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;" vertex="1" parent="datagrp">
+          <mxGeometry x="450" y="185" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="ddb" value="DynamoDB&#10;user_department&#10;(email -> department)" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#4D72F3;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.dynamodb;" vertex="1" parent="datagrp">
+          <mxGeometry x="620" y="185" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="eventbridge" value="EventBridge&#10;daily 02:30/02:45 UTC" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;" vertex="1" parent="datagrp">
+          <mxGeometry x="620" y="50" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="extgrp" value="External data sources" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FDF1F1;strokeColor=#C25B5B;dashed=1;verticalAlign=top;fontSize=12;fontStyle=1;fontColor=#8a2f2f;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="640" width="300" height="300" as="geometry"/>
+        </mxCell>
+        <mxCell id="kiroexport" value="Kiro Enterprise&#10;daily per-user CSV export" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#C25B5B;fontSize=11;fontStyle=1;" vertex="1" parent="extgrp">
+          <mxGeometry x="70" y="40" width="160" height="46" as="geometry"/>
+        </mxCell>
+        <mxCell id="kirobucket" value="S3 (us-east-1)&#10;kiro-user-usage-...-an&#10;.../KiroLogs/user_report/" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#7AA116;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;" vertex="1" parent="extgrp">
+          <mxGeometry x="120" y="120" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="idc" value="IAM Identity Center&#10;groups = departments" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.single_sign_on;" vertex="1" parent="extgrp">
+          <mxGeometry x="120" y="225" width="60" height="60" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_admin_cf" value="HTTPS / SPA" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#4A90D9;" edge="1" parent="1" source="admin" target="cf"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_admin_cognito" value="Sign-in OAuth2 code+PKCE" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;dashed=1;strokeColor=#DD344C;" edge="1" parent="1" source="admin" target="cognito"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_cf_s3" value="OAC private read" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#7AA116;" edge="1" parent="1" source="cf" target="s3web"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_admin_api" value="/api/* (Bearer JWT)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#E7157B;" edge="1" parent="1" source="admin" target="apigw"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_api_lambda" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;" edge="1" parent="appgrp" source="apigw" target="apilambda"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_lambda_agent" value="/api/chat forward" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#01A88D;" edge="1" parent="appgrp" source="apilambda" target="agentcore"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_agent_bedrock" value="inference" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#01A88D;" edge="1" parent="appgrp" source="agentcore" target="bedrockmodel"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_lambda_shared" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;dashed=1;" edge="1" parent="appgrp" source="apilambda" target="sharedq"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_agent_shared" value="reuse controlled tools" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;dashed=1;" edge="1" parent="appgrp" source="agentcore" target="sharedq"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_shared_athena" value="parameterized query" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#8C4FFF;" edge="1" parent="1" source="sharedq" target="athena"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_athena_glue" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;" edge="1" parent="datagrp" source="athena" target="glue"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_glue_curated" value="external table points to" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;" edge="1" parent="datagrp" source="glue" target="curated"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_etl_curated" value="write Parquet" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#ED7100;" edge="1" parent="datagrp" source="etl" target="curated"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_idsync_ddb" value="write mapping" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#ED7100;" edge="1" parent="datagrp" source="idsync" target="ddb"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_etl_ddb" value="join department" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;dashed=1;strokeColor=#4D72F3;" edge="1" parent="datagrp" source="etl" target="ddb"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_eb_etl" value="trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;dashed=1;strokeColor=#E7157B;" edge="1" parent="datagrp" source="eventbridge" target="etl"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_eb_idsync" value="trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;dashed=1;strokeColor=#E7157B;" edge="1" parent="datagrp" source="eventbridge" target="idsync"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_kiro_bucket" value="daily 02:00 UTC" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#C25B5B;" edge="1" parent="extgrp" source="kiroexport" target="kirobucket"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_etl_kiro" value="read CSV (cross-region us-east-1)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#C25B5B;strokeWidth=2;" edge="1" parent="1" source="etl" target="kirobucket"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_idsync_idc" value="ListGroups/Members (cross-region)" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=classic;strokeColor=#DD344C;strokeWidth=2;" edge="1" parent="1" source="idsync" target="idc"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_api_cognito" value="validate iss/aud" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;endArrow=open;dashed=1;strokeColor=#DD344C;" edge="1" parent="1" source="apigw" target="cognito"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="legend" value="Legend: solid = data/request flow   dashed = trigger/auth/dependency   thick = cross-region (us-east-1)" style="text;html=1;align=left;fontSize=11;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1000" width="700" height="20" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

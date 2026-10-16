@@ -1,0 +1,19 @@
+# Pinned backend test/dev deps. Mirrors infra/build.py::API_DEPS plus the test toolchain.
+# Install into a Python 3.12 venv: pip install -r backend/requirements-dev.txt
+fastapi==0.143.2
+starlette==1.8.0
+mangum==0.17.0
+pydantic==2.9.2
+pydantic-core==2.23.4
+anyio==4.15.1
+idna==3.20
+typing_extensions==4.16.0
+annotated-types==0.8.0
+annotated-doc==0.0.5
+typing-inspection==0.4.4
+opentelemetry-api==1.45.1
+pytest==9.1.1
+httpx==0.28.1
+boto3==1.43.113
+pandas==3.0.6
+pyarrow==26.0.0

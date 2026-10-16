@@ -1,0 +1,13 @@
+{
+  "apiEndpoint": "https://<api-id>.execute-api.<region>.amazonaws.com",
+  "cognito": {
+    "region": "<region>",
+    "userPoolId": "<user-pool-id>",
+    "clientId": "<app-client-id>",
+    "hostedUiDomain": "https://<cognito-domain-prefix>.auth.<region>.amazoncognito.com",
+    "redirectUri": "https://<cloudfront-domain>/callback",
+    "logoutUri": "https://<cloudfront-domain>/",
+    "scopes": ["openid", "email", "profile"]
+  },
+  "creditUnitPrice": 0.04
+}

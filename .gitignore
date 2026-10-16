@@ -1,0 +1,39 @@
+# Build output
+dist/
+build/
+cdk.out/
+infra/cdk.out/
+infra/build/
+*.zip
+
+# Python
+**/__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+
+# Node / frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Credentials / secrets (never commit)
+.env
+.env.*
+*.pem
+*.key
+credentials
+
+# Runtime frontend config (generated at deploy time; keep the example)
+frontend/public/config.json
+
+# Generated mock data (rebuilt by tools/generate_mock_data.py)
+mock/
+out.json
+
+# Local real config backups (do not commit; contain account-specific info)
+infra/cdk.context.local.json
+frontend/public/config.local.json

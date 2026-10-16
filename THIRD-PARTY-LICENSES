@@ -1,0 +1,72 @@
+Third-Party Licenses
+====================
+
+This project ("Efficiency Analytics Assistant for Kiro") depends on the third-party
+packages listed below. It does not vendor or redistribute any third-party source code;
+dependencies are declared in the manifests and installed at build/deploy time. Each
+dependency remains under its own license. Versions below match the pinned manifests
+(frontend/package.json, frontend/package-lock.json, infra/requirements.txt,
+infra/build.py::API_DEPS, backend/requirements-dev.txt, backend/agent/requirements.txt). Each
+license below was confirmed from the installed package metadata.
+
+Refer to each project's distribution for the full license text.
+
+Backend / API runtime (infra/build.py::API_DEPS, backend/requirements-dev.txt)
+------------------------------------------------------------------------------
+- fastapi 0.143.2 — MIT License
+- starlette 1.8.0 — BSD 3-Clause License
+- mangum 0.17.0 — MIT License
+- pydantic 2.9.2 — MIT License
+- pydantic-core 2.23.4 — MIT License
+- anyio 4.15.1 — MIT License
+- idna 3.20 — BSD 3-Clause License
+- typing_extensions 4.16.0 — Python Software Foundation License
+- annotated-types 0.8.0 — MIT License
+- annotated-doc 0.0.5 — MIT License
+- typing-inspection 0.4.4 — MIT License
+- opentelemetry-api 1.45.1 — Apache License 2.0
+
+Backend test / dev toolchain (backend/requirements-dev.txt)
+-----------------------------------------------------------
+- pytest 9.1.1 — MIT License
+- httpx 0.28.1 — BSD 3-Clause License
+- boto3 1.43.113 — Apache License 2.0
+- pandas 3.0.6 — BSD 3-Clause License
+- pyarrow 26.0.0 — Apache License 2.0
+
+Agent runtime (backend/agent/requirements.txt)
+----------------------------------------------
+- bedrock-agentcore 1.22.0 — Apache License 2.0
+- strands-agents 1.54.0 — Apache License 2.0
+- boto3 1.43.89 — Apache License 2.0
+
+Infrastructure / CDK (infra/requirements.txt)
+---------------------------------------------
+- aws-cdk-lib 2.253.0 — Apache License 2.0
+- constructs 10.8.1 — Apache License 2.0
+
+Frontend (frontend/package.json)
+--------------------------------
+- @ant-design/icons 5.6.1 — MIT License
+- antd 5.29.3 — MIT License
+- dayjs 1.11.23 — MIT License
+- echarts 6.1.0 — Apache License 2.0
+- echarts-for-react 3.0.6 — MIT License
+- react 18.3.1 — MIT License
+- react-dom 18.3.1 — MIT License
+- react-router-dom 7.18.4 — MIT License
+- react-router 7.18.4 — MIT License (dependency of react-router-dom)
+- @types/react 18.3.31 — MIT License
+- @types/react-dom 18.3.7 — MIT License
+- @vitejs/plugin-react 4.7.0 — MIT License
+- typescript 5.9.3 — Apache License 2.0
+- vite 6.4.4 — MIT License
+
+Notable frontend build-time transitive dependencies (frontend/package-lock.json)
+--------------------------------------------------------------------------------
+- esbuild 0.25.x — MIT License
+- source-map-js 1.2.2 — BSD 3-Clause License
+
+Transitive dependencies resolved by npm (see frontend/package-lock.json) and by pip
+(see the pinned Python manifests) are under their respective licenses as published by
+their maintainers.
