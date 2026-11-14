@@ -11,7 +11,7 @@ typing_extensions==4.16.0
 annotated-types==0.8.0
 annotated-doc==0.0.5
 typing-inspection==0.4.4
-opentelemetry-api==1.45.1
+opentelemetry-api==1.45.2
 pytest==9.1.1
 httpx==0.28.1
 boto3==1.43.113
